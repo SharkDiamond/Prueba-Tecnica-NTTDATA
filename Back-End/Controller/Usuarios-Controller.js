@@ -108,11 +108,35 @@ const updateUsers=(req,res) => {
 
 }
 
+const getUserForUid=async(req,res) => { 
+
+  try {
+    
+    //BUSCANDO EL USUARIO CON EL ID 
+    const userFind=await Usuario.findById(req.params.uid);
+    //CREANDO UNA VARIABLE CON EL MENSAJE GENERAL DE QUE NO EXISTE
+    const messageNotExist=`No existe un usuario con ese el id ${req.params.uid}`;
+    //EN DADO CASO NO HAYA UN USUARIO
+    if (!userFind) return res.status(404).json(messageNotExist).end();
+    //EN DADO CASO LO HAYA PERO SU ESTADO SEA FALSE
+    if (!userFind.estado) return res.status(404).json(messageNotExist).end();
+    //RESPONDIENDO CON LOS DATOS DEL USUARIO ENCONTRADO
+    res.status(200).json(userFind).end();
+
+   } catch (error) {
+        res.status(500).json("Ocurrio un error en el servidor"+error.message).end(); 
+     }
+
+ }
+
+
 module.exports={
 
     validateUser,
     createUsers,
     getUsers,
     deleteUsers,
-    updateUsers
+    updateUsers,
+    getUserForUid
+
 }

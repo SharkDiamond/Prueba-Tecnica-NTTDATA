@@ -32,8 +32,8 @@ const UsuarioSchema=Schema({
         type:String,
         required:[true,"el password en necesario"]},
     fechaCreacion:{
-        type:String,
-        default: new Date().toDateString()
+        type:Date,
+        default: new Date()
 
     },
     estado:{

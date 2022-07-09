@@ -1,12 +1,16 @@
 //IMPORTACIONES
 import {Chart as ChartJS,CategoryScale,LinearScale,Title,Tooltip,Legend,LineElement,PointElement} from "chart.js";
+import { GraficasContext } from "../Context/data-Graficas";
+import React, { useContext,useEffect } from 'react';
 import { Line } from "react-chartjs-2";
-import React from 'react';
 import '../App.css';
+
 
 export default function GraficaLineal() {
     
-    
+    //DESESTRUCTURANDO EL CONTEXTO DE GRAFICA DATOS
+   const {dataLineal : data,getDataLineal}=useContext(GraficasContext);
+
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -16,6 +20,17 @@ export default function GraficaLineal() {
         Tooltip,
         Legend
       );
+      
+    //CICLO DE VIDA DE MONTAJE     
+    useEffect(() => {
+    
+    //OBTENIENDO LOS DATOS PARA LA GRAFICA
+    getDataLineal();
+
+    }, []);
+  
+
+     //OPCIONES DE LA GAFICA
      const options = {
         responsive: true,
         plugins: {
@@ -24,16 +39,15 @@ export default function GraficaLineal() {
           },
         
         },
-      };
+     };
       
-      const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-      
-      const data = {
-        labels,
+      //DATOS DE LA GRAFICA
+      const dataGrafica = {
+        labels:['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
         datasets: [
           {
             label: 'Datos',
-            data: [12,1,34,23,15,27,18,12,17,16,20,30],
+            data,
             borderColor: 'white',
             backgroundColor: 'white',
           }
@@ -43,7 +57,7 @@ export default function GraficaLineal() {
     return (
     <>
 
-<Line options={options} data={data} />
+      <Line options={options} data={dataGrafica} />
 
     </>
   )

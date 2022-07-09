@@ -1,11 +1,15 @@
 //IMPORTACIONES
 import {Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend,} from "chart.js";
+import { GraficasContext } from "../Context/data-Graficas";
+import React, { useContext,useEffect } from 'react';
 import { Bar } from "react-chartjs-2";
-import React from 'react';
 import '../App.css';
 
 export default function GraficaBarra() {
- 
+  
+  //DESESTRUCTURANDO EL CONTEXTO DE GRAFICA DATOS
+  const {dataBarra : data,getDataBarra}=useContext(GraficasContext);
+
     ChartJS.register(
 
         CategoryScale,
@@ -20,23 +24,32 @@ export default function GraficaBarra() {
     
         Legend
     
-      );
+    );
 
+  //CICLO DE VIDA DE MONTAJE     
+  useEffect(() => {
+    
+    //OBTENIENDO LOS DATOS DE LA BARRA
+    getDataBarra();
 
-    const data = {
+  }, []);
+  
+  
+    //DATOS DE LA GRAFICA
+    const dataGrafica = {
         labels:['Administrador','Basico','Vendedor'],
           datasets: [
             {
               label:'Cantidad De Usuarios',
-              data: [12,12,1],
+              data,
               fill: false,
               backgroundColor:['white','white','white'],
               borderColor: 'rgba(22, 99, 132, 0.6)',
              
             },
           ],
-        };
-        
+    };
+    //OPCIONES DE LA GAFICA
     const options = {
          
           options:{
@@ -52,12 +65,11 @@ export default function GraficaBarra() {
               },
 
           }
-        };
+    };
  
     return (
     <div className='bg-dark'>
-       <Bar data={data} options={options.options} />
-    
+       <Bar data={dataGrafica} options={options.options} />
     </div>
   )
 

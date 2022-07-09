@@ -1,23 +1,22 @@
 //IMPORTACIONES
 import BarraGraficas from './NavBars.js/BarraGraficas';
-import GraficaLineal from './GraficaLineal';
-import GraficaBarra from './GraficaBarra';
-import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Col} from 'react-bootstrap';
+import React from 'react';
 
-
-export default function PanelIzquierdo() {
+export default function PanelIzquierdo({children}) {
   
+  //DESESTRUCTURANDO EL OBJETO USEPARAMS
+  const {tipoGrafica,MostrarPanelIzquierdo}=useParams();
 
-   //ESTADO PARA MANEJAR EL CAMBIO DE GRAFICA
-  const [graficaShow,setGraficaShow]=  useState('Bar');
-  
+
+
   return (
     <Col className='bg-dark me-5 rounded tm p-3' >
          
-        <BarraGraficas changeGrafica={setGraficaShow}/>
+        <BarraGraficas MostrarPanelIzquierdo={MostrarPanelIzquierdo}/>
 
-        {graficaShow ==='Bar' ? <GraficaBarra/> : <GraficaLineal/>}
+        {children}
 
       </Col>
   )

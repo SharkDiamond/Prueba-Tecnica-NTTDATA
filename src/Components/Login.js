@@ -31,7 +31,7 @@ export default function Login() {
            //GUARDANDO EN EL SESSION STORAGE EL TOKEN
            sessionStorage.setItem('token',sendDataUser.data.token);
            //NAVEGANDO HACIA EL DASHBOARD PRINCIPAL
-           navegador('/Dashboard/cantidadUsuarios/listaUsuarios');
+           navegador('/Dashboard/GraficaBarra/usersTableList');
            
         } catch (error) {
 
