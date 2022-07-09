@@ -1,4 +1,4 @@
-const {dbConection}=require('../Database/config');
+const {dbConection}=require('../Database/Config');
 const express=require('express');
 const cors=require('cors');
 
@@ -19,7 +19,7 @@ class Server{
     routes(){
       
        //RUTA PARA USUARIOS
-       this.app.use("/Users",require("../routes/Users.js"));
+       this.app.use("/Users",require("../Routes/Users.js"));
 
     }
 

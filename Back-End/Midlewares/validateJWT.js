@@ -1,6 +1,4 @@
 const jwt=require('jsonwebtoken');
-const Usuario=require('../Models/Usuario');
-
 
 const validarJWT= async (req,res,next)=>{
 
@@ -11,10 +9,7 @@ const validarJWT= async (req,res,next)=>{
     try {
 
        jwt.verify(token,'TESTREWRWER123@a');
-  
-       // const User= await Usuario.findById(uid);
-        
-       // req.usuario=User;
+
 
         next();
 

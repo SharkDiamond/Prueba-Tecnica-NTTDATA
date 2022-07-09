@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../App.css';
+import errorManage from "../Helpers/errors";
 
 
 export default function Login() {
@@ -25,20 +26,25 @@ export default function Login() {
             //DESABILITANDO EL BOTON DE ENTRAR
             BotonEnviarDatos.current.disabled=true;
            //HACIENDO LA PETICION HACIA EL SERVIDOR PARA VALIDAR EL USUARIO
-           const sendDataUser= await axios.post('https://backapposwa.osnetpr.net/Session/validate',{});
+           const sendDataUser= await axios.post('http://localhost:3006/Users/validateUserSession',{username:formData.username,password:formData.password});
            //GUARDANDO EN EL SESSION STORAGE EL TOKEN
-           sessionStorage.setItem('token','asdasd');
+           sessionStorage.setItem('token',sendDataUser.data.token);
            //NAVEGANDO HACIA EL DASHBOARD PRINCIPAL
-           navegador('Dashboard');
-
+           navegador('/Dashboard/cantidadUsuarios/listaUsuarios');
+           
         } catch (error) {
 
-            //DESABILITANDO EL BOTON DE ENTRAR
-            BotonEnviarDatos.current.disabled=false;
-            //IMPRIMIENDO EL ERROR EN CONSOLA
-            console.log(error.message);
+           errorManage(error);
+           //DESABILITANDO EL BOTON DE ENTRAR
+           BotonEnviarDatos.current.disabled=false;          
         
         }
+
+    }
+
+     const changeText=(e) => { 
+      
+        setFormData({...formData,[e.target.name]:e.target.value});
 
      }
 
@@ -56,9 +62,9 @@ export default function Login() {
                                 <FormControl
                                 required
                                 placeholder="User"
-                                name="Usuario"
+                                name="username"
                                 value={formData.username}
-                                onChange={(e) => setFormData(e.target.value)}
+                                onChange={changeText}
                                 type="text"
                                 />
 
@@ -67,9 +73,9 @@ export default function Login() {
                                 <FormControl
                                 required
                                 placeholder="Password"
-                                name="Password"
+                                name="password"
                                 value={formData.password}
-                                onChange={(e) => setFormData(e.target.value)}
+                                onChange={changeText}
                                 type="Password"
                                 />
 

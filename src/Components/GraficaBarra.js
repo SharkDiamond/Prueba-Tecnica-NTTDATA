@@ -39,7 +39,7 @@ export default function GraficaBarra() {
     
       );
 
-  
+
     const data = {
         labels:['Administrador','Basico','Vendedor'],
           datasets: [
@@ -54,7 +54,7 @@ export default function GraficaBarra() {
           ],
         };
         
-        const options = {
+    const options = {
          
           options:{
             responsives: true,
@@ -70,9 +70,6 @@ export default function GraficaBarra() {
 
           }
         };
-      
-    
- 
  
     return (
     <div className='bg-dark'>
@@ -80,4 +77,5 @@ export default function GraficaBarra() {
     
     </div>
   )
+
 }

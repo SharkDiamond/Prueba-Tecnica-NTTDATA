@@ -20,14 +20,17 @@ const UsuarioSchema=Schema({
     direccionfisica:{
         type:String,
         required:[true,"La direccion fisica es necesaria"]
-    
-    
       },
     rol:{
         type:String,
         require:true
     },
-
+    username:{
+        type:String,
+        required:[true,"el username es necesario"]},
+    password:{
+        type:String,
+        required:[true,"el password en necesario"]},
     fechaCreacion:{
         type:String,
         default: new Date().toDateString()
