@@ -1,5 +1,6 @@
-import { Button, Col } from 'react-bootstrap';
+//IMPORTACIONES
 import {React,useEffect, useState} from 'react';
+import { Button, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 export default function PanelDerecho() {

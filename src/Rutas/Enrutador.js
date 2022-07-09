@@ -1,10 +1,9 @@
 //IMPORTACIONES
 import DashboardPrincipal from '../Components/DashboardPrincipal';
 import {BrowserRouter,Route, Routes} from 'react-router-dom';
+import RutasPrivadas from './Rutas-Privadas';
 import Login from '../Components/Login';
 import React from 'react';
-import RutasPrivadas from './Rutas-Privadas';
-
 
 
 export default function Enrutador() {

@@ -1,8 +1,10 @@
-import { Col} from 'react-bootstrap';
-import React, { useState } from 'react';
-import BarraGraficas from './NavBars.js/BarraGraficas'
-import GraficaBarra from './GraficaBarra'
+//IMPORTACIONES
+import BarraGraficas from './NavBars.js/BarraGraficas';
 import GraficaLineal from './GraficaLineal';
+import GraficaBarra from './GraficaBarra';
+import React, { useState } from 'react';
+import { Col} from 'react-bootstrap';
+
 
 export default function PanelIzquierdo() {
   

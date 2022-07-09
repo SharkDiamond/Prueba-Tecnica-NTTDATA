@@ -1,23 +1,8 @@
+//IMPORTACIONES
+import {Chart as ChartJS,CategoryScale,LinearScale,Title,Tooltip,Legend,LineElement,PointElement} from "chart.js";
+import { Line } from "react-chartjs-2";
 import React from 'react';
-import {
-
-    Chart as ChartJS,
-  
-    CategoryScale,
-  
-    LinearScale,
-  
-    Title,
-  
-    Tooltip,
-  
-    Legend,
-    LineElement,
-    PointElement
-  
-  } from "chart.js";
-  import '../App.css';
-  import { Line } from "react-chartjs-2";
+import '../App.css';
 
 export default function GraficaLineal() {
     

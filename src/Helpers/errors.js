@@ -1,7 +1,7 @@
 
 
 
-const errorManage=(error) => { 
+const errorManage=(error) => {
     
     //IMPRIMIENDO EN CONSOLA EL ERROR
     console.log(error.message);
