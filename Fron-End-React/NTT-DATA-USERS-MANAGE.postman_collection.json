@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "ddb5a52e-6de9-4b5a-a8a3-9b02b1ab9466",
+		"name": "NTT-DATA-USERS-MANAGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15504371"
+	},
+	"item": [
+		{
+			"name": "Users-Crud",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Obtener Usuarios",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZ2FicmllbGFkbWluIiwiaWF0IjoxNjU3Mzc3OTA4LCJleHAiOjE2NTczODE1MDh9.JTluZz8UKg3SJMVTJiG_z5xTz3ZY8fYuTManL-Bsg8U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3006/Users/usersList",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3006",
+									"path": [
+										"Users",
+										"usersList"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar usuario por Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiYWRtaW4iLCJpYXQiOjE2NTc0MDUwOTIsImV4cCI6MTY1NzQwODY5Mn0.8e4vdej1XpCxEbMwRBGzFQ4HqkCqG3QSIFpWqfTWtLw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3006/Users/usersFindId/62c9ddfdf065e6a3df527b92",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3006",
+									"path": [
+										"Users",
+										"usersFindId",
+										"62c9ddfdf065e6a3df527b92"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Usuario Por Username",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiYWRtaW4iLCJpYXQiOjE2NTc0NjE0NzEsImV4cCI6MTY1NzQ2NTA3MX0.kMogYMie8jCTxY6lC0VMrEeEUsgcIgSDyJLeLlP2PX8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3006/Users/usersSearch/g",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3006",
+									"path": [
+										"Users",
+										"usersSearch",
+										"g"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Auth",
+							"item": [
+								{
+									"name": "Inicio Sesion",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n\"username\":\"admin\",\n\"password\":\"test12345\"\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3006/Users/validateUserSession",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3006",
+											"path": [
+												"Users",
+												"validateUserSession"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Respuesta Exitosa",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\n\"username\":\"gabrieladmin\",\n\"password\":\"wwwaaa12\"\n\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:3006/Users/validateUserSession",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3006",
+													"path": [
+														"Users",
+														"validateUserSession"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Expose-Headers",
+													"value": "Content-Disposition"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "434"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1b2-HxcKPq9+TU8jWXH+l1AYAvm8EHE\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 09 Jul 2022 14:45:08 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"usuario\": {\n        \"nombre\": \"gabriel\",\n        \"apellido\": \"arispe\",\n        \"correo\": \"gabrielarispe24@gmail.com\",\n        \"direccionfisica\": \"carrera 11a 190-46\",\n        \"rol\": \"admin\",\n        \"username\": \"gabrieladmin\",\n        \"fechaCreacion\": \"Sat Jul 09 2022\",\n        \"estado\": true,\n        \"uid\": \"62c991ffc363e1796fa89270\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZ2FicmllbGFkbWluIiwiaWF0IjoxNjU3Mzc3OTA4LCJleHAiOjE2NTczODE1MDh9.JTluZz8UKg3SJMVTJiG_z5xTz3ZY8fYuTManL-Bsg8U\",\n    \"msg\": \"Login ok\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "create User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiYWRtaW4iLCJpYXQiOjE2NTczOTY1NTYsImV4cCI6MTY1NzQwMDE1Nn0.90t285VIDBdgvglXcm11AQmt0FBqsYtu35YkMj0ak74",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n\"nombre\":\"gabriel\",\n\"apellido\":\"arispe\",\n\"correo\":\"gabrielarispe@gmail.com\",\n\"direccionfisica\":\"carrera 11a 190-46\",\n\"rol\":\"admin\",\n\"username\":\"admin\",\n\"password\":\"test12345\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3006/Users/createUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3006",
+									"path": [
+										"Users",
+										"createUser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Eliminar Usuario",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiYWRtaW4iLCJpYXQiOjE2NTc0NDg2ODIsImV4cCI6MTY1NzQ1MjI4Mn0.4cyrCR0yH3e17JVHk3ra0aS2idhtwHN0oFfyerIflBM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n\"username\":\"lgomez\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3006/Users/deleteUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3006",
+									"path": [
+										"Users",
+										"deleteUser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
