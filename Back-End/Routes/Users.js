@@ -42,8 +42,5 @@ enrutador.get('/usersSearch/:username',[validarJWT],searchUser);
 enrutador.delete('/deleteUser',[check('username','el nombre de usuario es necesario').notEmpty()
                                 ,validationExpress,validarJWT],deleteUsers);
 
-//ACTUALIZAR USUARIO
-enrutador.put('',[],() => {  });
-
 
 module.exports=enrutador;
