@@ -83,9 +83,14 @@ const deleteUsers=async(req,res) => {
      //DESESTRUCTURANDO EL OBJETO BODY
      const {username}=req.body;
      //EN DADO CASO DE EXISTIR UN USUARIO CON ESE USERNAME
-     if (!await Usuario.findOne({username,estado:true})) return res.status(404).json({msg:`No existe un usuario ${username}`});
+     if (!await Usuario.findOne({username,estado:true})){
+        //SACANDO LA NUEVA LISTA DE USUARIOS
+        const newListUsers=await Usuario.find({estado:true});
+
+        return res.status(404).json({msg:`No existe un usuario ${username}`,newListUsers});
+     } 
      //CAMBIANDO EL ESTADO A FALSE 
-     await  Usuario.findOneAndUpdate(username,{estado:false});
+     await  Usuario.findOneAndUpdate({username},{estado:false});
      //SACANDO LA NUEVA LISTA DE USUARIOS
      const newListUsers=await Usuario.find({estado:true});
      //RESPONDIENDO CON EL USUARIO ELIMINADO

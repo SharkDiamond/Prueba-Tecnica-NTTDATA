@@ -9,15 +9,13 @@ const errorManage=(error,navegador=null) => {
     //EN DADO CASO DE SER UN ERROR DE MIDLEWARES       
     if (error.response.data.Problems) return alert(error.response.data.Problems[0].msg);
     //EN DADO CASO DE SER UN ERROR DE VALIDACION 'TOKEN'
-    else if (error.response.data.msg){
-        
+    if (error.response.data.msg==='Token Invalido'){
         //ELIMINANDO EL TOKEN DEL SSESION STORAGE
         sessionStorage.removeItem('token');
         //REDIRIGIENDO A LA RUTA DEL LOGIN
-        navegador('/Login');
-
-
-    } 
+        return  navegador('/Login');
+    }
+    else alert(error.response.data.msg);
 
  }
 

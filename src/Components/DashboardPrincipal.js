@@ -9,30 +9,30 @@ import UsersTableList from "./usersTableList";
 import PanelIzquierdo from './PanelIzquierdo';
 import GraficaLineal from './GraficaLineal';
 import PerfilUsuario from "./PerfilUsuario";
+//IMPORTACIONES
 import PanelDerecho from './PanelDerecho';
 import GraficaBarra from './GraficaBarra';
 import Barra from './NavBars.js/Barra';
 import {React,useEffect} from 'react';
 
-
 export default function DashboardPrincipal() {
   
-
+  //OBTENIENDO LOS PARAMETROS DE LA URL
   const {tipoGrafica,MostrarPanelIzquierdo}=useParams();
-
+  //CREANDO EL NAVEGADOR
   const navegador=useNavigate();
-
+  //OBJETO DE COMPONENTES
   const componentes={
 
     GraficaLineal:<GraficaLineal/>,
     GraficaBarra:<GraficaBarra/>,
-    usersTableList:<UsersTableList/>,
+    usersTableList:<UsersTableList tableType='showUsers'/>,
     perfilUsuario:<PerfilUsuario/>,
     CreateUsersForm:<CrearUsuario/>,
     DeleteUsersForm:<EliminarUsuario/>,
     updateUserForm:<ActualizarUsuario/>
   };
-
+  //CICLO DE VIDA DE MONTAJE
   useEffect(() => {
  
   //EN DADO CASO LA RUTA NO CONCUERDE CON ALGUNO DE LOS COMPONENTES
@@ -43,7 +43,6 @@ export default function DashboardPrincipal() {
   };
 
   }, []);
-
 
   return (
     <>
