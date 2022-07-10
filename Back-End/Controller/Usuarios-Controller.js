@@ -112,7 +112,7 @@ const updateUsers=(req,res) => {
     }
 
 }
-
+//OBTENER UN USUARIO POR ID
 const getUserForUid=async(req,res) => { 
 
   try {
@@ -134,6 +134,23 @@ const getUserForUid=async(req,res) => {
 
  }
 
+//BUSCAR UN USUARIO POR USERNAME
+const searchUser= async (req,res) => { 
+
+    try {
+        //BUSCANDO LOS USUARIOS QUE CONCUERDEN CON EL NOMBRE DE USUARIO ENVIADO
+        const userFind= await Usuario.find({ username : { $regex:  req.params.username },estado:true});
+        //EN DADO CASO DE NO ENCONTRAR USUARIOS
+        if (userFind.length==0) return res.status(404).json({msg:`No se encontraron resultados`}).end();
+        //RESPONDIENDO CON USUARIOS
+        res.status(200).json(userFind).end();
+
+    } catch (error) {
+        res.status(500).json("Ocurrio un error en el servidor"+error.message).end(); 
+    }
+
+ }
+
 
 module.exports={
 
@@ -142,6 +159,7 @@ module.exports={
     getUsers,
     deleteUsers,
     updateUsers,
-    getUserForUid
+    getUserForUid,
+    searchUser
 
 }

@@ -1,9 +1,10 @@
 //IMPORTACIONES
-const { validateUser, createUsers, getUsers, deleteUsers, getUserForUid } = require('../Controller/Usuarios-Controller');
+const { validateUser, createUsers, getUsers, deleteUsers, getUserForUid, searchUser } = require('../Controller/Usuarios-Controller');
 const validationExpress = require('../Midlewares/checkResult');
+const { validarJWT } = require('../Midlewares/validateJWT');
 const { check } = require('express-validator');
 const {Router}=require('express');
-const { validarJWT } = require('../Midlewares/validateJWT');
+
 
 
 
@@ -30,10 +31,12 @@ enrutador.post('/createUser',[check('nombre','el nombre del usuario es necesario
 enrutador.get('/usersList',[validarJWT],getUsers);
 
 
-//OBTENER USUARIOS
+//OBTENER USUARIO ESPECIFICO POR ID
 enrutador.get('/usersFindId/:uid',[check('uid','el uid enviado no es valido').isMongoId(),
                                     validationExpress,
                                     validarJWT],getUserForUid);
+
+enrutador.get('/usersSearch/:username',[validarJWT],searchUser);
 
 //ELIMINAR USUARIO ESPECIFICO
 enrutador.delete('/deleteUser',[check('username','el nombre de usuario es necesario').notEmpty()
