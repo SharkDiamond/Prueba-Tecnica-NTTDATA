@@ -1,5 +1,8 @@
 //IMPORTACIONES
+import ActualizarUsuario from "./Formularios/ActualizarUsuario";
+import EliminarUsuario from "./Formularios/EliminarUsuario";
 import { useNavigate, useParams } from "react-router-dom";
+import CrearUsuario from "./Formularios/CrearUsuario";
 import GraficaDatos from "../Context/data-Graficas";
 import { Container, Row } from "react-bootstrap";
 import UsersTableList from "./usersTableList";
@@ -24,8 +27,10 @@ export default function DashboardPrincipal() {
     GraficaLineal:<GraficaLineal/>,
     GraficaBarra:<GraficaBarra/>,
     usersTableList:<UsersTableList/>,
-    perfilUsuario:<PerfilUsuario/>
-
+    perfilUsuario:<PerfilUsuario/>,
+    CreateUsersForm:<CrearUsuario/>,
+    DeleteUsersForm:<EliminarUsuario/>,
+    updateUserForm:<ActualizarUsuario/>
   };
 
   useEffect(() => {
@@ -46,7 +51,7 @@ export default function DashboardPrincipal() {
      <Barra/>
 
         <Container className='mt-5'>
-
+        
             <Row className='mb-5'>
               <GraficaDatos>
 
